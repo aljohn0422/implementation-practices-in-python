@@ -11,7 +11,7 @@ from quick import quick_sort
 
 class TestSortingAlgorithms(unittest.TestCase):
     def setUp(self) -> None:
-        self.arr = [random.randint(1, 50) for i in range(8)]
+        self.arr = [random.randint(1, 50) for i in range(20)]
 
     def test_insertion_sort(self):
         sorted_arr = insertion_sort(self.arr)
