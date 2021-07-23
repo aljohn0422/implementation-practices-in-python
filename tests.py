@@ -1,12 +1,14 @@
 import unittest
 import random
+from unittest.case import TestCase
 
-from insertion import insertion_sort
-from bubble import bubble_sort
-from selection import selection_sort
-from counting import counting_sort
-from merge import merge_sort
-from quick import quick_sort
+from sorting.insertion import insertion_sort
+from sorting.bubble import bubble_sort
+from sorting.selection import selection_sort
+from sorting.counting import counting_sort
+from sorting.merge import merge_sort
+from sorting.quick import quick_sort
+from structure.hash_table import HashTable
 
 
 class TestSortingAlgorithms(unittest.TestCase):
@@ -36,6 +38,17 @@ class TestSortingAlgorithms(unittest.TestCase):
     def test_quick_sort(self):
         sorted_arr = quick_sort(self.arr)
         self.assertEqual(sorted_arr, sorted(self.arr))
+
+
+class TestDataStructures(unittest.TestCase):
+    def test_hash_table(self):
+        ht = HashTable()
+        ht.put(2, 5)
+        ht.put(2, 3)
+        ht.put(10, 28)
+        ht.put(20, 3)
+        self.assertEqual(ht.get(2), 3)
+        self.assertEqual(ht.get(10), 28)
 
 
 if __name__ == '__main__':
