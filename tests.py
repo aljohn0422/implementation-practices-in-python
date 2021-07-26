@@ -1,6 +1,5 @@
 import unittest
 import random
-from unittest.case import TestCase
 
 from sorting.insertion import insertion_sort
 from sorting.bubble import bubble_sort
@@ -9,6 +8,7 @@ from sorting.counting import counting_sort
 from sorting.merge import merge_sort
 from sorting.quick import quick_sort
 from structure.hash_table import HashTable
+from structure.heap import MinHeap
 
 
 class TestSortingAlgorithms(unittest.TestCase):
@@ -49,6 +49,18 @@ class TestDataStructures(unittest.TestCase):
         ht.put(20, 3)
         self.assertEqual(ht.get(2), 3)
         self.assertEqual(ht.get(10), 28)
+
+    def test_min_heap(self):
+        import heapq
+        arr = [11, 5, 3, 6, 8, 2, 7, 9, 0]
+        heap = MinHeap()
+        for a in arr:
+            heap.insert(a)
+
+        self.assertTrue(heap.is_valid())
+        self.assertEqual(heapq.nsmallest(1, arr)[0], heap.min())
+        heap.remove_min()
+        self.assertTrue(heap.is_valid())
 
 
 if __name__ == '__main__':
